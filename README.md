@@ -6,7 +6,6 @@ werden anhand ihrer Kurzbezeichnung (z. B. "BGB") erkannt. Es gibt eine flexible
 Alternativ kann auch eine vorgegebene Liste von Gesetzen genutzt werden. Die gefundenen Normen können dann z. B. aufgelistet oder
 automatisch verlinkt werden etc.
 
-
 ## Dateien
 Datei|Beschreibung
 ---|---
@@ -107,8 +106,8 @@ Liste an erlaubten Gesetzen vorgegeben werden. Dies wird [unten](#Alternative_Ve
 ***
 Die auf `gesetz` folgende optionale named capture `buch` ist für Gesetzesabkürzungen wie SGB II erforderlich, bei denen das jeweilige
 Gesetzbuch durch ein Leerzeichen getrennt in römischen Ziffern ausgedrückt wird. Gibt es hier einen entsprechenden Treffer, so ist das
-Leerzeichen in der Gruppe `Buch` enthalten. Die Verwendung eines named capture für `buch` ist an sich unnötig, da diese Gruppe komplett in
-`enthalten` ist. Sie hilft jedoch, den Sinn dieser Gruppe direkt zu erinnern.
+Leerzeichen in der Gruppe `Buch` enthalten. Die Verwendung eines named capture für `buch` ist an sich unnötig, da diese Gruppe komplett in `gesetz`
+enthalten ist. Sie hilft jedoch, den Sinn dieser Gruppe direkt zu erinnern.
 
 
 Für den obigen Beispielstext ergeben sich damit die folgenden Matches:
@@ -176,9 +175,10 @@ nicht von Groß-/Kleinschreibung abhängt, kann zusätzlich die Flag ``re.IGNORE
 "bgb" erkannt).
 
 In der Datei ``gesetze.py`` ist ein dictionary enthalten, dessen keys die derzeit bei https://gesetze-im-internet.de vorhandenen
-Bundesgesetze enthält. Der erste Value-Eintrag ist jeweils die korrekt formatierte Gesetzesabkürzung, der zweite Eintrag enthält die
+Bundesgesetze enthalten. Der erste Value-Eintrag ist jeweils die korrekt formatierte Gesetzesabkürzung, der zweite Eintrag enthält die
 Information, wie die jeweiligen Gesetze auf der Website in URLs verwendet werden. Damit kann ein simpler Verlinker von erkannten Normen
 gebaut werden, wie in ``verlinker.py`` gezeigt.
+
 
 ## Lizenz
 Ich räume jedermann unentgeltlich ein einfaches Nutzungsrecht für alle Nutzungsarten ein.
