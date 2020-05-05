@@ -15,7 +15,7 @@ gesetze.py|Liste mit Kurzbezeichnungen für Bundesgesetze
 verlinker.py|Skript mit automatischer Verlinkung nach https://gesetze-im-internet.de
 
 ## Benutzung/Kompatibilität
-Die Regexes verwenden die Python-Syntax und können unmittelbar in Python-Skripte eingebunden werden.
+Die Regexes verwenden die Python-Syntax und können unmittelbar in Python-Skripte eingebunden werden. Sie funktionieren unverändert auch in Perl 5.30.
 
 Das Modul `re` muss importiert werden.
 
@@ -133,6 +133,11 @@ ergibt daher
  Ganzes Match          | Norm | Abs. | S.  | Nr. | lit. | gesetz | buch
  ---                   | ---  | ---  | --- | --- | ---  | ---    | ---
 §§ 346 I, 437 Nr. 2 Alt. 1, 440, 326 V, 323, 434, 433 BGB | 346   | –    | –   | –   | –    | BGB   | –
+
+### Overlapping Matches
+Die vorgenannten Grenzen der Erkennung können jedoch in Bezug auf §§-Ketten, bei denen die einzelnen Normen jeweils mit einem §-Zeichen/Art. eingeleitet werden, mittels overlapping matches umgangen werden. Dies wird in Python nur bei Verwendung des Moduls `regex` statt `re` unterstützt. Hier gibt es beispielsweise für `regex.findall` die Option `overlapped=True`.
+
+
 
 ### Alternative Version
 Wenn nur vorgegebene Gesetze erkannt werden sollen, bietet es sich an, die möglichen Gesetze direkt in die Regex zu integrieren.
