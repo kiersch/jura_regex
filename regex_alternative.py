@@ -12,7 +12,7 @@ p = re.compile(r""" # Die Regex wird in p kompiliert
 (?:Nummer|Nr\.\s*(?P<nr>\d+(?:\w\b)?))?\s*
 (?:Buchstabe|Buchst\.lit\.\s*(?P<lit>[a-z]?))?
 .{0,10}?
-(?P<gesetz>\b[A-Z][A-Za-z]*[A-Z](?:(?P<buch>(?:\s|\b)[XIV]+)?))
+(?P<gesetz>zpo|versg|egzpo)(?![\w-])
 """, re.IGNORECASE | re.VERBOSE)
 
 Teststring = """Hier zu überprüfenden Text einfügen"""
