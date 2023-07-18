@@ -5,12 +5,12 @@ import re
 
 # Für Erläuterung der Regex siehe README.md
 p = re.compile(r""" # Die Regex wird in p kompiliert
-(§+|Art|Artikel)\.?\s*
+(?P<norm_type>§+|Art|Artikel)\.?\s*
 (?P<norm>\d+(?:\w\b)?)\s*
-(?:Abs\.\s*(?P<absatz>\d+(?:\w\b)?))?\s*
-(?:S\.\s*(?P<satz>\d+))?\s*
-(?:Nr\.\s*(?P<nr>\d+(?:\w\b)?))?\s*
-(?:lit\.\s*(?P<lit>[a-z]?))?
+(?:Absatz|Abs\.\s*(?P<absatz>\d+(?:\w\b)?))?\s*
+(?:Satz|S\.\s*(?P<satz>\d+))?\s*
+(?:Nummer|Nr\.\s*(?P<nr>\d+(?:\w\b)?))?\s*
+(?:Buchstabe|Buchst\.lit\.\s*(?P<lit>[a-z]?))?
 .{0,10}?
 (?P<gesetz>\b[A-Z][A-Za-z]*[A-Z](?:(?P<buch>(?:\s|\b)[XIV]+)?))
 """, re.VERBOSE)
